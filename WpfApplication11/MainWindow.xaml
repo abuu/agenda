@@ -8,7 +8,7 @@
         <Button Content="AGREGAR CONTACTO" Height="23" HorizontalAlignment="Left" Margin="312,12,0,0" Name="button2" VerticalAlignment="Top" Width="149" Click="button2_Click" />
         <Button Content="ELIMINAR CONTACTO" Height="23" HorizontalAlignment="Left" Margin="312,48,0,0" Name="button3" VerticalAlignment="Top" Width="149" />
         <Button Content="MODIFICAR CONTACTO" Height="23" HorizontalAlignment="Left" Margin="312,91,0,0" Name="button4" VerticalAlignment="Top" Width="149" />
-        <Button Content="MOSTRAR INFORMACION" Height="23" HorizontalAlignment="Left" Margin="148,144,0,0" Name="button5" VerticalAlignment="Top" Width="167" Click="button5_Click" />
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="12,189,0,0" Name="dataGrid1" VerticalAlignment="Stretch" DataContext="{Binding}" />
+        <Button Content="CONTACTOS" Height="23" HorizontalAlignment="Left" Margin="143,145,0,0" Name="button5" VerticalAlignment="Top" Width="167" Click="button5_Click" />
+        <DataGrid AutoGenerateColumns="True" HorizontalAlignment="Stretch" Margin="12,189,0,0" Name="dataGrid1" VerticalAlignment="Stretch" DataContext="{Binding}" AlternatingRowBackground="#FFFA1900" AreRowDetailsFrozen="False" />
     </Grid>
 </Window>

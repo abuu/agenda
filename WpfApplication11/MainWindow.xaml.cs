@@ -30,16 +30,16 @@ namespace WpfApplication11
         private void button5_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection cnx = new SqlConnection(@"server=.;database=AGENDA;Integrated Security =True");
+            //SqlCommand cmd = new SqlCommand("REPORTE", cnx);
             SqlCommand cmd = new SqlCommand("REPORTE", cnx);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
             //DataSet DS = new DataSet();
             DataTable DT = new DataTable();
             cnx.Open();
             //cmd.ExecuteNonQuery();
             DA.Fill(DT);
-            dataGrid1.DataContext = DT;
+            dataGrid1.ItemsSource = DT.DefaultView;
             cnx.Close();
             //MessageBox.Show("hey");
         }
@@ -84,15 +84,19 @@ namespace WpfApplication11
         private void listBox1_GotMouseCapture(object sender, MouseEventArgs e)
         {
             SqlConnection cnx = new SqlConnection(@"server=.;database=AGENDA;Integrated Security =True");
-            SqlCommand cmd = new SqlCommand("REPORTE", cnx);
+            //SqlCommand cmd = new SqlCommand("REPORTE", cnx);
+            SqlCommand cmd = new SqlCommand("informacion", cnx);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cnx.Open();
+            cmd.Parameters.Add("@NOMBRE", System.Data.SqlDbType.Text, 50);
+            cmd.Parameters["@NOMBRE"].Value = Convert.ToString(listBox1.SelectedItem);
+            //MessageBox.Show(listBox1.AreAnyTouchesCaptured);
             SqlDataAdapter DA = new SqlDataAdapter(cmd);
-            DataSet DS = new DataSet();
+            //DataSet DS = new DataSet();
             DataTable DT = new DataTable();
-            cmd.ExecuteNonQuery();
-            DA.Fill(DS);
-            dataGrid1.DataContext = DS;
+            cnx.Open();
+            //cmd.ExecuteNonQuery();
+            DA.Fill(DT);
+            dataGrid1.ItemsSource = DT.DefaultView;
             cnx.Close();
             //MessageBox.Show("hey");
         }
