@@ -100,5 +100,24 @@ namespace WpfApplication11
             cnx.Close();
             //MessageBox.Show("hey");
         }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 ventana1 = new Window1();
+            ventana1.Owner = this;
+            ventana1.ShowDialog();
+        }
+
+        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 ventana3 = new Window3();
+            ventana3.Owner = this;
+            ventana3.ShowDialog();
+        }
     }
 }
